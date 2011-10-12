@@ -1,27 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Kikipat</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Kikipat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript" src="/assets/cufon/cufon-yui.js"></script>
+      <script type="text/javascript" src="/assets/cufon/Museo_300-Museo_400.font.js"></script>
+      <script type="text/javascript" src="/assets/cufon/config.js"></script>
 
-  <div class="header">
-    <div class="header_content">
-      <h1> Kiki et Pat </h1>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div class="header">
+      <div class="header_content">
+        <h1><%= link_to "Kiki et Pat", root_url %> </h1>
+
+        <div id="user_nav">
+          <% if current_user %>
+            <%= link_to "Se déconnecter", log_out_path, :class => "small-rounded-corners" %>
+          <% else %>
+            <%= link_to "Se connecter", log_in_path, :class => "small-rounded-corners" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="main">
-    <div class="content">
-      <%= yield %>
+
+    <div class="main">
+      <div class="content">
+
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+
+
+        <%= yield %>
+      </div>
+      <div class="sidebar">
+        <div id="about-box">
+          <h2>Instructions</h2>
+          <p>
+
+            Bonjour et bienvenue sur notre site d’idées cadeaux. Vous voulez nous offrir un petit quelque chose pour souligner la venue de notre premier enfant? Vous êtes à la bonne place. Vous trouverez ici la liste de toutes 
+            les choses qu’on ne s’est toujours pas procurées et que nous aurons besoin <b>avant</b> la venue de bébé (dans la plupart des cas). Nous vous invitons donc à parcourir la liste classée par prix pour vérifier s’il y un élément parmi cette liste 
+            que vous désirez nous offrir.</p>
+
+          <p>Lorsque vous aurez sélectionné le cadeau que vous désirez offrir, vous n’avez qu’à cliquer sur "s'engager à offrir cet article". Le site vous demandera un code (vous l'avez eu par courriel) pour confirmer. Ainsi, les futurs visiteurs sauront que 
+            ce cadeau sera déjà offert par quelqu’un pour éviter que nous recevions 2 articles identiques. Il ne vous restera plus qu’à faire vos emplettes!!</p>
+
+          <p>Point important, pour certains articles, nous avons déterminé un modèle en particulier. Si vous choisissez cet article, veuillez respecter notre choix. Dans les autres cas, nous vous avons mis des exemples, mais vous n’êtes pas obligés d’acheter 
+            ces modèles en particulier, les exemples sont là seulement pour illustrer nos propos.</p>
+
+          <p>Nous avons fixé la date limite d’utilisation de cette liste au 15 janvier parce que passé cette date,  nous irons nous procurer les articles manquants avant la venue de bébé, donc faites vite! Vous pouvez cependant nous offrir votre cadeau plus 
+            tard, puisque nous saurons qu’il nous sera offert si vous l’avez sélectionné dans la liste.</p>
+
+          <p>Nous vous remercions grandement et on a très très hâte de vous présenter ce petit bonhomme!
+
+
+          </p>
+        </div>
+
+      </div>
     </div>
-  </div>
 
-  <div class="footer">
-  </div>
+    <br class="clear" />
+    <div class="footer">
+      <div class="copyright">
+        Fait par <%= link_to "Sébastien Lachance", "http://sebastienlachance.com" %>
+      </div>
+    </div>
 
-</body>
+    <script type="text/javascript"> Cufon.now(); </script>
+  </body>
 </html>

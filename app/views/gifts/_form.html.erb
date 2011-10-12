@@ -1,4 +1,4 @@
-<%= form_for(@gift) do |f| %>
+<%= form_for(@gift, :class => "form", :html => { :multipart => true }  ) do |f| %>
   <% if @gift.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@gift.errors.count, "error") %> prohibited this gift from being saved:</h2>
@@ -12,18 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Nom du cadeau" %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.label :photo, "Photo" %>
+    <%= f.file_field :photo %> 
+ </div>
+  <div class="field">
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :price %><br />
+    <%= f.label :price, "Prix" %>
     <%= f.text_field :price %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Sauvegarder", :class => "small-rounded-corners" %>
   </div>
 <% end %>

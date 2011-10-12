@@ -15,50 +15,8 @@ html {
   padding:0px;
 }
 
-body {
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  margin:0px;
-  padding:0px;
-  background-color:#009393;
-  color:white;
-}
-
 div {
   margin:0px;
   padding:0px;
 }
 
-.header {
-  width:100%;
-  background-color:#00585F;
-  height:70px;
-  color:white;
-}
-
-.header_content {
-  width:960px;
-  margin:0 auto;
-}
-
-.header h1 {
-  padding:10px;
-  font-size:40px;
-}
-
-.main {
-  width:960px;
-  margin:0 auto;
-}
-
-.main .content {
-  width:700px;
-  padding-top:20px;
-}
-
-.main .sidebar {
-  width:260px;
-}
-
-.footer {
-  width:100%;
-}

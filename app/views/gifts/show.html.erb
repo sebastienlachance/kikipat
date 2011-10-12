@@ -1,20 +1,25 @@
 <p id="notice"><%= notice %></p>
+<div class="gift_header" >
+  <div class="gift_picture" style="float:left; padding:0px 30px 0px 10px">
+    <%= image_tag @gift.photo(:thumb), :class => 'shadow' %>
+  </div>
+  <div class="gift_info" style="float:left">
+    <h2><%= @gift.name %></h2>
+    <span><%= number_to_currency(@gift.price, :unit => '$') %></span>
+  </div>
+</div>
+<br class="clear" />
 
 <p>
-  <b>Name:</b>
-  <%= @gift.name %>
-</p>
-
-<p>
-  <b>Description:</b>
   <%= @gift.description %>
 </p>
 
+<br /><br />
+
 <p>
-  <b>Price:</b>
-  <%= @gift.price %>
+  <% if current_user %>
+    <%= link_to 'Modifier', edit_gift_path(@gift) %> |
+    <%= link_to 'Supprimer', @gift, confirm: 'Êtes-vous certain?', method: :delete %> |
+  <% end %>
+  <%= link_to 'Retourner', gifts_path %>
 </p>
-
-
-<%= link_to 'Edit', edit_gift_path(@gift) %> |
-<%= link_to 'Back', gifts_path %>

@@ -1,29 +1,55 @@
-<% Category.all.each do |c| %>
-  <h2><%= c %></h2>
-<% end %>
 
+<h2>Entre 0$ et 25$</h2>
 <table>
+<% @gifts_less_than_25.each do |gift| %>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @gifts.each do |gift| %>
-  <tr>
-    <td><%= gift.name %></td>
-    <td><%= gift.description %></td>
+    <% if gift.reserved == false %>
+      <td><%= @gift.name %></td>
+    <% end %>
+      <td><%= link_to gift.name, gift %></td>
     <td><%= gift.price %></td>
-    <td><%= link_to 'Show', gift %></td>
-    <td><%= link_to 'Edit', edit_gift_path(gift) %></td>
-    <td><%= link_to 'Destroy', gift, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Gift', new_gift_path %>
+
+<h2>Entre 25$ et 50$</h2>
+<table>
+<% @gifts_between_25_and_50.each do |gift| %>
+  <tr>
+    <td><%= link_to gift.name, gift %></td>
+    <td><%= gift.price %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h2>Entre 50$ et 100$</h2>
+<table>
+<% @gifts_between_50_and_100.each do |gift| %>
+  <tr>
+    <td><%= link_to gift.name, gift %></td>
+    <td><%= gift.price %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<h2>100$ et plus</h2>
+<table>
+<% @gifts_more_than_100.each do |gift| %>
+  <tr>
+    <td><%= link_to gift.name, gift %></td>
+    <td><%= gift.price %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if current_user %>
+  <a href="<%= new_gift_path %>">Ajouter une nouvelle idée cadeau</a>
+<% end %>
