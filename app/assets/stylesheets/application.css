@@ -4,19 +4,10 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require_tree . 
+ *= require jquery.facebox
 */
 * {
   margin:0;
   padding:0;  
-}
-
-html {
-  margin:0px;
-  padding:0px;
-}
-
-div {
-  margin:0px;
-  padding:0px;
 }
 

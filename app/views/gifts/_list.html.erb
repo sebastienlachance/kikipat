@@ -1,0 +1,16 @@
+
+<h2>Entre 0$ et 25$</h2>
+<table>
+<% @gifts_less_than_25.each do |gift| %>
+  <tr>
+    <% if gift.reserved == false %>
+      <td><%= @gift.name %></td>
+    <% end %>
+      <td><%= link_to gift.name, gift %></td>
+    <td><%= gift.price %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

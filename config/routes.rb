@@ -5,6 +5,7 @@ Kikipat::Application.routes.draw do
   root :to => 'gifts#index'
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
+  post 'gifts/:id/reserve' => "gifts#reserve", :as => "reserve"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

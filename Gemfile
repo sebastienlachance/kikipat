@@ -10,6 +10,7 @@ gem 'pg'
 gem 'sqlite3'
 gem 'paperclip'
 gem 'aws-s3'
+gem 'facebox-rails'
 
 
 # Gems used only for assets and not required

@@ -1,3 +1,5 @@
+#coding: utf-8
+
 class GiftsController < ApplicationController
   # GET /gifts
   # GET /gifts.json
@@ -83,5 +85,19 @@ class GiftsController < ApplicationController
       format.html { redirect_to gifts_url }
       format.json { head :ok }
     end
+  end
+
+  def reserve
+    if params[:code] == "superlongcode"
+      gift = Gift.find(params[:id])
+      gift.reserved = true
+      gift.reserved_by = params[:email]
+      gift.save!
+      flash[:notice] = "Vous avez réservé ce cadeau!"
+    else
+      flash[:error] = "Code invalide"
+    end
+
+    redirect_to :action => 'show', :id => params[:id]
   end
 end

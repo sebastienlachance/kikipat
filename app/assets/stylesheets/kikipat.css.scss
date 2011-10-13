@@ -34,7 +34,7 @@ p {
   height:100px;
   color:white;
   position:relative; 
-  z-index:500; 
+  z-index:99; 
   background:url(header-bg.png) bottom center repeat-x; 
 }
 
@@ -200,4 +200,16 @@ table tr td {
   -moz-box-shadow: 5px 5px 7px #888;
   -webkit-box-shadow: 5px 5px 7px #888;
 
+}
+
+#to_reserve {
+  color:red;
+}
+
+#flash_error {
+  color:red;
+}
+
+#flash_notice {
+  color:green;
 }

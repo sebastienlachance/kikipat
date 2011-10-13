@@ -1,11 +1,45 @@
-<p id="notice"><%= notice %></p>
+
+<br />
 <div class="gift_header" >
   <div class="gift_picture" style="float:left; padding:0px 30px 0px 10px">
-    <%= image_tag @gift.photo(:thumb), :class => 'shadow' %>
+    <%= image_tag @gift.photo(:medium), :class => 'shadow' %>
   </div>
   <div class="gift_info" style="float:left">
-    <h2><%= @gift.name %></h2>
+    <h2>
+      <%= @gift.name %>
+    </h2>
     <span><%= number_to_currency(@gift.price, :unit => '$') %></span>
+    <br />
+    <br />
+    <div>
+      <% if @gift.reserved %>
+        <span style="float:left;padding-top:5px;padding-right:10px;"> Non-disponible </span>
+        <img src="/assets/block.png" style="float:left;" /> 
+      <% else %>
+        <span style="float:left;padding-top:5px;padding-right:10px;"> Disponible </span>
+        <img src="/assets/accept.png" /> 
+      <% end %>   
+    </div>
+    <% if @gift.reserved.nil? || @gift.reserved == false %>
+      <br />
+      <a href="#to_reserve" id="reserve">Réserver</a>
+      <div id="to_reserve" style="display:none">
+        <%= form_tag reserve_url do %>
+          <h2>Réserver ce cadeau</h2>
+          <p>Entrez votre adresse courriel ainsi que le code reçu par courriel.</p>
+          <%= hidden_field_tag :id, @gift.id %>
+          <div class="field">
+            <%= label_tag :email, "Adresse courriel" %>
+            <%= text_field_tag :email %>
+          </div>
+          <div class="field">
+            <%= label_tag :code, "Le code" %>
+            <%= text_field_tag :code %>
+          </div>
+          <%= submit_tag "Réserver"%>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 <br class="clear" />
@@ -23,3 +57,9 @@
   <% end %>
   <%= link_to 'Retourner', gifts_path %>
 </p>
+<script type="text/javascript">
+  $(function() {
+    $('#reserve').facebox();    
+    $(document).bind('reveal.facebox', function() {Cufon.refresh();});
+  });
+</script>
