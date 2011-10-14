@@ -1,0 +1,22 @@
+<h1>Configuration</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Mot de passe administrateur</th>
+    <th>Texte de bienvenue</th>
+    <th></th>
+  </tr>
+
+<% @settings.each do |setting| %>
+  <tr>
+    <td><%= setting.code %></td>
+    <td><%= setting.password %></td>
+    <td>...</td>
+    <td><%= link_to 'Modifier', edit_setting_path(setting) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

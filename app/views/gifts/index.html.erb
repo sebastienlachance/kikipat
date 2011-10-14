@@ -3,11 +3,17 @@
 <table>
 <% @gifts_less_than_25.each do |gift| %>
   <tr>
-    <% if gift.reserved == false %>
-      <td><%= @gift.name %></td>
+    <% if gift.reserved.nil? || !gift.reserved   %>
+      <td>
+        <img src="/assets/accept.png" /> 
+      </td>
+    <% else %>
+      <td>
+        <img src="/assets/block.png" /> 
+      </td>
     <% end %>
       <td><%= link_to gift.name, gift %></td>
-    <td><%= gift.price %></td>
+    <td><%= number_to_currency(gift.price, :unit => '$') %></td>
   </tr>
 <% end %>
 </table>
@@ -19,8 +25,17 @@
 <table>
 <% @gifts_between_25_and_50.each do |gift| %>
   <tr>
+    <% if gift.reserved.nil? || !gift.reserved   %>
+      <td>
+        <img src="/assets/accept.png" /> 
+      </td>
+    <% else %>
+      <td>
+        <img src="/assets/block.png" /> 
+      </td>
+    <% end %>
     <td><%= link_to gift.name, gift %></td>
-    <td><%= gift.price %></td>
+    <td><%= number_to_currency(gift.price, :unit => '$') %></td>
   </tr>
 <% end %>
 </table>
@@ -31,8 +46,17 @@
 <table>
 <% @gifts_between_50_and_100.each do |gift| %>
   <tr>
+    <% if gift.reserved.nil? || !gift.reserved   %>
+      <td>
+        <img src="/assets/accept.png" /> 
+      </td>
+    <% else %>
+      <td>
+        <img src="/assets/block.png" /> 
+      </td>
+    <% end %>
     <td><%= link_to gift.name, gift %></td>
-    <td><%= gift.price %></td>
+    <td><%= number_to_currency(gift.price, :unit => '$') %></td>
   </tr>
 <% end %>
 </table>
@@ -43,8 +67,17 @@
 <table>
 <% @gifts_more_than_100.each do |gift| %>
   <tr>
+    <% if gift.reserved.nil? || !gift.reserved   %>
+      <td>
+        <img src="/assets/accept.png" /> 
+      </td>
+    <% else %>
+      <td>
+        <img src="/assets/block.png" /> 
+      </td>
+    <% end %>
     <td><%= link_to gift.name, gift %></td>
-    <td><%= gift.price %></td>
+    <td><%= number_to_currency(gift.price, :unit => '$') %></td>
   </tr>
 <% end %>
 </table>

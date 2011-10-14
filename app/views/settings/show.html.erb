@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @setting.code %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @setting.password %>
+</p>
+
+<p>
+  <b>Sidebar:</b>
+  <%= @setting.sidebar %>
+</p>
+
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

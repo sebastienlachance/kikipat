@@ -2,7 +2,9 @@
 <br />
 <div class="gift_header" >
   <div class="gift_picture" style="float:left; padding:0px 30px 0px 10px">
-    <%= image_tag @gift.photo(:medium), :class => 'shadow' %>
+    <% if !@gift.photo_file_name.nil? %>
+      <%= image_tag @gift.photo(:medium), :class => 'shadow' %>
+    <% end %>
   </div>
   <div class="gift_info" style="float:left">
     <h2>
@@ -43,6 +45,7 @@
   </div>
 </div>
 <br class="clear" />
+<br />
 
 <p>
   <%= @gift.description %>

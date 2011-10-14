@@ -6,8 +6,8 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <script type="text/javascript" src="/assets/cufon/cufon-yui.js"></script>
-      <script type="text/javascript" src="/assets/cufon/Museo_300-Museo_400.font.js"></script>
-      <script type="text/javascript" src="/assets/cufon/config.js"></script>
+    <script type="text/javascript" src="/assets/cufon/Museo_300-Museo_400.font.js"></script>
+    <script type="text/javascript" src="/assets/cufon/config.js"></script>
 
     <%= csrf_meta_tags %>
   </head>
@@ -19,6 +19,7 @@
 
         <div id="user_nav">
           <% if current_user %>
+            <%= link_to "Configuration", settings_path, :class => "small-rounded-corners" %>
             <%= link_to "Se déconnecter", log_out_path, :class => "small-rounded-corners" %>
           <% else %>
             <%= link_to "Se connecter", log_in_path, :class => "small-rounded-corners" %>
@@ -53,10 +54,7 @@
           <p>Point important, pour certains articles, nous avons déterminé un modèle en particulier. Si vous choisissez cet article, veuillez respecter notre choix. Dans les autres cas, nous vous avons mis des exemples, mais vous n’êtes pas obligés d’acheter 
             ces modèles en particulier, les exemples sont là seulement pour illustrer nos propos.</p>
 
-          <p>Nous avons fixé la date limite d’utilisation de cette liste au 15 janvier parce que passé cette date,  nous irons nous procurer les articles manquants avant la venue de bébé, donc faites vite! Vous pouvez cependant nous offrir votre cadeau plus 
-            tard, puisque nous saurons qu’il nous sera offert si vous l’avez sélectionné dans la liste.</p>
 
-          <p>Nous vous remercions grandement et on a très très hâte de vous présenter ce petit bonhomme!
 
 
           </p>

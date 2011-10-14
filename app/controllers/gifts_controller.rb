@@ -88,7 +88,7 @@ class GiftsController < ApplicationController
   end
 
   def reserve
-    if params[:code] == "superlongcode"
+    if params[:code] == Setting.code 
       gift = Gift.find(params[:id])
       gift.reserved = true
       gift.reserved_by = params[:email]

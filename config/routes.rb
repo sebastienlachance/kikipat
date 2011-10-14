@@ -1,4 +1,6 @@
 Kikipat::Application.routes.draw do
+  resources :settings
+
   resources :gifts
   resources :sessions
 
