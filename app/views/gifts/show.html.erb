@@ -53,13 +53,13 @@
 
 <br /><br />
 
-<p>
+<div>
   <% if current_user %>
     <%= link_to 'Modifier', edit_gift_path(@gift) %> |
     <%= link_to 'Supprimer', @gift, confirm: 'Êtes-vous certain?', method: :delete %> |
   <% end %>
   <%= link_to 'Retourner', gifts_path %>
-</p>
+</div>
 <script type="text/javascript">
   $(function() {
     $('#reserve').facebox();    
