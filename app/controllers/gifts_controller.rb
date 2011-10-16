@@ -8,7 +8,7 @@ class GiftsController < ApplicationController
     @gifts_less_than_25 = Gift.where('price <= 25')
     @gifts_between_25_and_50 = Gift.where('price > 25 and price <= 50')
     @gifts_between_50_and_100 = Gift.where('price > 50 and price <= 100')
-    @gifts_more_than_100 = Gift.where('price > 25')
+    @gifts_more_than_100 = Gift.where('price > 100')
 
     respond_to do |format|
       format.html # index.html.erb
