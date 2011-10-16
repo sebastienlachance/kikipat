@@ -11,7 +11,7 @@ gem 'sqlite3'
 gem 'paperclip'
 gem 'aws-s3'
 gem 'facebox-rails'
-
+gem 'rails_autolink'
 
 # Gems used only for assets and not required
 # in production environments by default.
